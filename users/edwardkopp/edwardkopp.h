@@ -59,24 +59,3 @@ enum rainbow_layer_cake
 #define EK_GAS A(S(KC_LGUI))
 #define EK_CGA C(A(KC_LGUI))
 #define EK_____ _______
-
-
-// Tuple for referencing these special modifiers
-const uint16_t specialModifiers[] = {
-    EK_GUI,
-    EK_LCTL,
-    EK_LALT,
-    EK_RCTL,
-    EK_RALT,
-    EK_CS,
-    EK_GS,
-    EK_AS,
-    EK_CG,
-    EK_CA,
-    EK_GA,
-    EK_CGS,
-    EK_CAS,
-    EK_GAS,
-    EK_CGA,
-    EK_____
-};

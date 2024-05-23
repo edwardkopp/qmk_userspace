@@ -19,6 +19,27 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #include "edwardkopp.h"
 
 
+// Tuple for referencing these special modifiers
+const uint16_t specialModifiers[] = {
+    EK_GUI,
+    EK_LCTL,
+    EK_LALT,
+    EK_RCTL,
+    EK_RALT,
+    EK_CS,
+    EK_GS,
+    EK_AS,
+    EK_CG,
+    EK_CA,
+    EK_GA,
+    EK_CGS,
+    EK_CAS,
+    EK_GAS,
+    EK_CGA,
+    EK_____
+};
+
+
 // Calculate the keycode count of the tuple
 size_t specialModifiersCount = sizeof(specialModifiers) / sizeof(specialModifiers[0]);
 
