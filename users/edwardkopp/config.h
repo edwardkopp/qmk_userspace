@@ -28,15 +28,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 // Undo default Voyager stuff
 #ifdef MOUSEKEY_WHEEL_INTERVAL
     #undef MOUSEKEY_WHEEL_INTERVAL
-    #define MOUSEKEY_WHEEL_INTERVAL
 #endif
 #ifdef MOUSEKEY_WHEEL_MAX_SPEED
     #undef MOUSEKEY_WHEEL_MAX_SPEED
-    #define MOUSEKEY_WHEEL_MAX_SPEED
 #endif
 #ifdef MOUSEKEY_WHEEL_TIME_TO_MAX
     #undef MOUSEKEY_WHEEL_TIME_TO_MAX
-    #define MOUSEKEY_WHEEL_TIME_TO_MAX
 #endif
 #ifdef MOUSEKEY_INTERVAL
     #undef MOUSEKEY_INTERVAL
