@@ -31,8 +31,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 // Somewhat smooth mouse
 #define MK_KINETIC_SPEED
-#define MOUSEKEY_INTERVAL 4
-#define MOUSEKEY_MOVE_DELTA 64
+#define MOUSEKEY_INTERVAL 5
+#define MOUSEKEY_MOVE_DELTA 50
 #define MOUSEKEY_INITIAL_SPEED 50
 #define MOUSEKEY_BASE_SPEED 10000
 #define MOUSEKEY_DECELERATED_SPEED 50
