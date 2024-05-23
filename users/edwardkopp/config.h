@@ -19,10 +19,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 
 
-// Eight layer limit
-#define LAYER_STATE_8BIT
-
-
 // Gamer keyboard
 #define USB_POLLING_INTERVAL_MS 1
 #define QMK_KEYS_PER_SCAN 12
