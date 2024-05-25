@@ -39,7 +39,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     #undef MOUSEKEY_TIME_TO_MAX
 #endif
 
-
+/*
 // Undo Voyager mousewheel defaults
 #ifdef MOUSEKEY_WHEEL_INTERVAL
     #undef MOUSEKEY_WHEEL_INTERVAL
@@ -53,7 +53,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #ifdef MOUSEKEY_WHEEL_TIME_TO_MAX
     #undef MOUSEKEY_WHEEL_TIME_TO_MAX
 #endif
-
+*/
 
 // Somewhat smooth mouse
 #define MOUSEKEY_INERTIA
@@ -64,9 +64,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MOUSEKEY_FRICTION 40
 #define MOUSEKEY_MOVE_DELTA 1
 
-
+/*
 // Somewhat smooth mousewheel
 #define MOUSEKEY_WHEEL_DELAY 1
 #define MOUSEKEY_WHEEL_INTERVAL 40
 #define MOUSEKEY_WHEEL_DELTA 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
+*/
