@@ -25,26 +25,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 
-// Undo default Voyager stuff
-#ifdef MOUSEKEY_WHEEL_INTERVAL
-    #undef MOUSEKEY_WHEEL_INTERVAL
-#endif
-#ifdef MOUSEKEY_WHEEL_MAX_SPEED
-    #undef MOUSEKEY_WHEEL_MAX_SPEED
-#endif
-#ifdef MOUSEKEY_WHEEL_TIME_TO_MAX
-    #undef MOUSEKEY_WHEEL_TIME_TO_MAX
-#endif
+// Undo default MOUSEKEY_INTERVAL Voyager
 #ifdef MOUSEKEY_INTERVAL
     #undef MOUSEKEY_INTERVAL
 #endif
 
 
 // Somewhat smooth mouse
-#define MK_KINETIC_SPEED
+#define MOUSEKEY_INERTIA
+#define MOUSEKEY_DELAY 100
 #define MOUSEKEY_INTERVAL 4
-#define MOUSEKEY_MOVE_DELTA 64
-#define MOUSEKEY_INITIAL_SPEED 50
-#define MOUSEKEY_BASE_SPEED 10000
-#define MOUSEKEY_DECELERATED_SPEED 50
-#define MOUSEKEY_ACCELERATED_SPEED 5000
+#define MOUSEKEY_MAX_SPEED 32
+#define MOUSEKEY_TIME_TO_MAX 125
+#define MOUSEKEY_FRICTION 40
+#define MOUSEKEY_MOVE_DELTA 1
