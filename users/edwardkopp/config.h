@@ -58,9 +58,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 // Somewhat smooth mouse
 #define MOUSEKEY_INERTIA
 #define MOUSEKEY_DELAY 0
-#define MOUSEKEY_INTERVAL 1
-#define MOUSEKEY_MAX_SPEED 128
-#define MOUSEKEY_TIME_TO_MAX 500
+#define MOUSEKEY_INTERVAL 2
+#define MOUSEKEY_MAX_SPEED 64
+#define MOUSEKEY_TIME_TO_MAX 200
 #define MOUSEKEY_FRICTION 40
 #define MOUSEKEY_MOVE_DELTA 1
 
