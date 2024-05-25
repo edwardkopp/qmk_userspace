@@ -38,6 +38,15 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #ifdef MOUSEKEY_TIME_TO_MAX
     #undef MOUSEKEY_TIME_TO_MAX
 #endif
+#ifdef MOUSEKEY_WHEEL_INTERVAL
+    #undef MOUSEKEY_WHEEL_INTERVAL
+#endif
+#ifdef MOUSEKEY_WHEEL_MAX_SPEED
+    #undef MOUSEKEY_WHEEL_MAX_SPEED
+#endif
+#ifdef MOUSEKEY_WHEEL_TIME_TO_MAX
+    #undef MOUSEKEY_WHEEL_TIME_TO_MAX
+#endif
 
 
 // Somewhat smooth mouse
@@ -48,3 +57,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MOUSEKEY_TIME_TO_MAX 250
 #define MOUSEKEY_FRICTION 40
 #define MOUSEKEY_MOVE_DELTA 1
+
+
+// Somewhat smooth mousewheel
+#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_WHEEL_INTERVAL 2
+#define MOUSEKEY_WHEEL_DELTA 1
+#define MOUSEKEY_WHEEL_MAX_SPEED 8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 250
