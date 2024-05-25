@@ -16,6 +16,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 
-// Expecting 160hz real-world
+// Expecting 140hz real-world
 #undef MOUSEKEY_INTERVAL
 #define MOUSEKEY_INTERVAL 4
