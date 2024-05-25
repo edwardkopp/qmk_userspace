@@ -67,6 +67,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 // Somewhat smooth mousewheel
 #define MOUSEKEY_WHEEL_DELAY 1
-#define MOUSEKEY_WHEEL_INTERVAL 8
+#define MOUSEKEY_WHEEL_INTERVAL 40
 #define MOUSEKEY_WHEEL_DELTA 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
