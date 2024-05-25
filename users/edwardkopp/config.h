@@ -25,7 +25,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 
-// Undo Voyager defaults
+// Undo Voyager mouse defaults
 #ifdef MOUSEKEY_INTERVAL
     #undef MOUSEKEY_INTERVAL
 #endif
@@ -38,8 +38,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #ifdef MOUSEKEY_TIME_TO_MAX
     #undef MOUSEKEY_TIME_TO_MAX
 #endif
+
+
+// Undo Voyager mousewheel defaults
 #ifdef MOUSEKEY_WHEEL_INTERVAL
     #undef MOUSEKEY_WHEEL_INTERVAL
+#endif
+#ifdef MOUSEKEY_WHEEL_DELAY
+    #undef MOUSEKEY_WHEEL_DELAY
 #endif
 #ifdef MOUSEKEY_WHEEL_MAX_SPEED
     #undef MOUSEKEY_WHEEL_MAX_SPEED
