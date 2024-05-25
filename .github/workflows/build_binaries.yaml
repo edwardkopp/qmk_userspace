@@ -35,7 +35,7 @@ jobs:
   publish:
     name: 'Publish Binaries'
     uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
-    if: always() && !cancelled()
+    if: always() && !cancelled() && github.ref_name == 'main'
     needs:
       - build
       - tagging

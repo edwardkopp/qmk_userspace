@@ -55,18 +55,18 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #endif
 
 
-// Somewhat smooth mouse
+// Somewhat smooth mouse (expecting 130hz real-world from Preonic)
 #define MOUSEKEY_INERTIA
 #define MOUSEKEY_DELAY 0
-#define MOUSEKEY_INTERVAL 10
-#define MOUSEKEY_MAX_SPEED 80
-#define MOUSEKEY_TIME_TO_MAX 50
+#define MOUSEKEY_INTERVAL 7
+#define MOUSEKEY_MAX_SPEED 50
+#define MOUSEKEY_TIME_TO_MAX 70
 #define MOUSEKEY_FRICTION 40
 #define MOUSEKEY_MOVE_DELTA 1
 
 
 // Somewhat smooth mousewheel
-#define MOUSEKEY_WHEEL_DELAY 10
+#define MOUSEKEY_WHEEL_DELAY 0
 #define MOUSEKEY_WHEEL_INTERVAL 80
 #define MOUSEKEY_WHEEL_DELTA 1
 #define MOUSEKEY_WHEEL_MAX_SPEED 1
