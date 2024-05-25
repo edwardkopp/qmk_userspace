@@ -24,6 +24,7 @@ jobs:
   tagging:
     name: 'Generate Publish Tag'
     runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
     outputs:
       tag: ${{steps.generate-tag.outputs.tag}}
     steps:
