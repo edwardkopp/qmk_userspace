@@ -55,7 +55,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #endif
 
 
-// Somewhat smooth mouse (expecting 130hz real-world from Preonic)
+// Slower lights
+#ifdef RGB_MATRIX_ENABLE
+    #undef RGB_MATRIX_DEFAULT_SPD
+    #define RGB_MATRIX_DEFAULT_SPD 63
+#endif
+
+
+// Somewhat smooth mouse
 #define MOUSEKEY_INERTIA
 #define MOUSEKEY_DELAY 0
 #define MOUSEKEY_INTERVAL 7
