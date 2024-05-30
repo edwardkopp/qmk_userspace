@@ -30,7 +30,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MK_KINETIC_MOUSE_ACCN 8
 #define MK_KINETIC_MOUSE_DRAG 8
 #define MK_KINETIC_MOUSE_FRIC 16
-#define MK_KINETIC_MOUSE_MAXS 256
+#define MK_KINETIC_MOUSE_MAXS 200
 #define MK_KINETIC_WHEEL_ACCN 8
 #define MK_KINETIC_WHEEL_DRAG 8
 #define MK_KINETIC_WHEEL_FRIC 8
