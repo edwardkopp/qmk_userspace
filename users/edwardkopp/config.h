@@ -40,7 +40,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MK_KINETIC_MOUSE_ACCN 12
 #define MK_KINETIC_MOUSE_DRAG 8
 #define MK_KINETIC_MOUSE_FRIC 32
-#define MK_KINETIC_MOUSE_MAXS 128
+#define MK_KINETIC_MOUSE_MAXS 196
 
 // Good mousewheel
 #define MK_KINETIC_WHEEL_ACCN 16
