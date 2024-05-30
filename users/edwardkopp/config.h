@@ -45,5 +45,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 // Good mousewheel
 #define MK_KINETIC_WHEEL_ACCN 16
 #define MK_KINETIC_WHEEL_DRAG 16
-#define MK_KINETIC_WHEEL_FRIC 16
+#define MK_KINETIC_WHEEL_FRIC 32
 #define MK_KINETIC_WHEEL_MAXS 1
