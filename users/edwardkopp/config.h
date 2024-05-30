@@ -29,6 +29,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 // Good mouse
+#define MOUSEKEY_WHEEL_DELAY 0
 #define MK_VARIANT MK_TYPE_KINETIC
 #define MK_KINETIC_MOUSE_ACCN 16
 #define MK_KINETIC_MOUSE_DRAG 12
