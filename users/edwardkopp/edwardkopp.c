@@ -131,11 +131,11 @@ layer_state_t layer_state_set_user(layer_state_t state)
     #ifdef RGB_MATRIX_ENABLE
     if (layer_state_cmp(new_layer_state, _RAT))
     {
-        rgb_matrix_disable_noeeprom();
+        rgb_matrix_set_speed_noeeprom(0);
     }
     else
     {
-        rgb_matrix_enable_noeeprom();
+        rgb_matrix_set_speed_noeeprom(RGB_MATRIX_DEFAULT_SPD);
     }
     #endif
     return new_layer_state;
