@@ -63,7 +63,7 @@ bool isModFresh = false;
 
 
 // Handles additional functionality for modifier layer activation keys
-bool ShiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool pressed)
+bool shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool pressed)
 {
     if (pressed)
     {
@@ -88,9 +88,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     switch (keycode)
     {
         case EK_LMOD:
-            return ShiftModifierLayerKey(KC_LSFT, _LMOD, pressed);
+            return shiftModifierLayerKey(KC_LSFT, _LMOD, pressed);
         case EK_RMOD:
-            return ShiftModifierLayerKey(KC_RSFT, _RMOD, pressed);
+            return shiftModifierLayerKey(KC_RSFT, _RMOD, pressed);
         case EK_SYM:
         case EK_NAV:
             return true;
