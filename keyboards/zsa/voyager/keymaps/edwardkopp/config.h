@@ -20,4 +20,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 // Unfortunate compromise to get mouse smooth
+#undef USB_POLLING_INTERVAL_MS
 #define USB_POLLING_INTERVAL_MS 4
