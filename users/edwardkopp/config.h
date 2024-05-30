@@ -28,6 +28,13 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 
+// Slower lights
+#ifdef RGB_MATRIX_ENABLE
+    #undef RGB_MATRIX_DEFAULT_SPD
+    #define RGB_MATRIX_DEFAULT_SPD 31
+#endif
+
+
 // Good mouse
 #define MOUSEKEY_WHEEL_DELAY 0
 #define MK_VARIANT MK_TYPE_KINETIC
