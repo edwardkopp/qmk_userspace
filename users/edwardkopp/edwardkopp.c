@@ -127,8 +127,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 // Make _RAT layer accessible
 layer_state_t layer_state_set_user(layer_state_t state)
 {
+    layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
     #ifdef RGB_MATRIX_ENABLE
-    if (IS_LAYER_ON(_RAT))
+    if (layer_state_cmp(new_layer_state, _RAT))
     {
         rgb_matrix_disable_noeeprom();
     }
@@ -137,5 +138,5 @@ layer_state_t layer_state_set_user(layer_state_t state)
         rgb_matrix_enable_noeeprom();
     }
     #endif
-    return update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
+    return new_layer_state;
 }
