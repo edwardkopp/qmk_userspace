@@ -25,13 +25,49 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 
-// Good mouse
-#define MK_VARIANT MK_TYPE_KINETIC
-#define MK_KINETIC_MOUSE_ACCN 12
-#define MK_KINETIC_MOUSE_DRAG 8
-#define MK_KINETIC_MOUSE_FRIC 32
-#define MK_KINETIC_MOUSE_MAXS 250
-#define MK_KINETIC_WHEEL_ACCN 0
-#define MK_KINETIC_WHEEL_DRAG 4
-#define MK_KINETIC_WHEEL_FRIC 4
-#define MK_KINETIC_WHEEL_MAXS 4
+// Undo Voyager mouse defaults
+#ifdef MOUSEKEY_INTERVAL
+    #undef MOUSEKEY_INTERVAL
+#endif
+#ifdef MOUSEKEY_DELAY
+    #undef MOUSEKEY_DELAY
+#endif
+#ifdef MOUSEKEY_MAX_SPEED
+    #undef MOUSEKEY_MAX_SPEED
+#endif
+#ifdef MOUSEKEY_TIME_TO_MAX
+    #undef MOUSEKEY_TIME_TO_MAX
+#endif
+
+
+// Undo Voyager mousewheel defaults
+#ifdef MOUSEKEY_WHEEL_INTERVAL
+    #undef MOUSEKEY_WHEEL_INTERVAL
+#endif
+#ifdef MOUSEKEY_WHEEL_DELAY
+    #undef MOUSEKEY_WHEEL_DELAY
+#endif
+#ifdef MOUSEKEY_WHEEL_MAX_SPEED
+    #undef MOUSEKEY_WHEEL_MAX_SPEED
+#endif
+#ifdef MOUSEKEY_WHEEL_TIME_TO_MAX
+    #undef MOUSEKEY_WHEEL_TIME_TO_MAX
+#endif
+
+
+// Somewhat smooth mouse (expecting 130hz real-world from Preonic)
+#define MOUSEKEY_INERTIA
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_INTERVAL 7
+#define MOUSEKEY_MAX_SPEED 50
+#define MOUSEKEY_TIME_TO_MAX 70
+#define MOUSEKEY_FRICTION 40
+#define MOUSEKEY_MOVE_DELTA 1
+
+
+// Somewhat smooth mousewheel
+#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_WHEEL_INTERVAL 80
+#define MOUSEKEY_WHEEL_DELTA 1
+#define MOUSEKEY_WHEEL_MAX_SPEED 1
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 0
