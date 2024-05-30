@@ -128,15 +128,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 layer_state_t layer_state_set_user(layer_state_t state)
 {
     layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
-    #ifdef RGB_MATRIX_ENABLE
     if (layer_state_cmp(new_layer_state, _RAT))
     {
         rgb_matrix_disable_noeeprom();
+        register_code(KC_ACL0);
+        unregister_code(KC_ACL0);
     }
     else
     {
         rgb_matrix_enable_noeeprom();
     }
-    #endif
     return new_layer_state;
 }
