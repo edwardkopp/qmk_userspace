@@ -19,7 +19,7 @@ jobs:
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: edwardkopp/qmk_firmware
-      qmk_ref: better-mouse
+      qmk_ref: main
 
   tagging:
     name: 'Generate Publish Tag'
