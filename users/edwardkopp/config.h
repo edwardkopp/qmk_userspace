@@ -19,8 +19,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 
 
-// Gamer keyboard
-#define USB_POLLING_INTERVAL_MS 1
+// I would like to lower this back to 1 someday
+#define USB_POLLING_INTERVAL_MS 4
+
+
+// Allow mashing
 #define QMK_KEYS_PER_SCAN 12
 #define FORCE_NKRO
 
@@ -29,9 +32,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MK_VARIANT MK_TYPE_KINETIC
 #define MK_KINETIC_MOUSE_ACCN 12
 #define MK_KINETIC_MOUSE_DRAG 4
-#define MK_KINETIC_MOUSE_FRIC 32
+#define MK_KINETIC_MOUSE_FRIC 100
 #define MK_KINETIC_MOUSE_MAXS 250
-#define MK_KINETIC_WHEEL_ACCN 0
+#define MK_KINETIC_WHEEL_ACCN 4
 #define MK_KINETIC_WHEEL_DRAG 0
-#define MK_KINETIC_WHEEL_FRIC 4
+#define MK_KINETIC_WHEEL_FRIC 8
 #define MK_KINETIC_WHEEL_MAXS 8
