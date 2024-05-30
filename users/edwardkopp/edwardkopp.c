@@ -138,8 +138,8 @@ layer_state_t layer_state_set_user(layer_state_t state)
     }
     else
     {
-        register_code(KC_ALC0);
-        unregister_code(KC_ALC0);
+        register_code(KC_ACL0);
+        unregister_code(KC_ACL0);
         #ifdef RGB_MATRIX_ENABLE
             rgb_matrix_enable_noeeprom();
         #endif
