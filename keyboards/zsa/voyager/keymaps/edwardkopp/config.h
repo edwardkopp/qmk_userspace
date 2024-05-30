@@ -18,7 +18,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 #pragma once
 
-
-// Unfortunate compromise to get mouse smooth
-#undef USB_POLLING_INTERVAL_MS
-#define USB_POLLING_INTERVAL_MS 8
+#undef RGB_MATRIX_ENABLE
