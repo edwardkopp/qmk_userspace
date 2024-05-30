@@ -38,9 +38,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 // Good mouse
 #define MK_VARIANT MK_TYPE_KINETIC
 #define MK_KINETIC_MOUSE_ACCN 12
-#define MK_KINETIC_MOUSE_DRAG 8
+#define MK_KINETIC_MOUSE_DRAG 16
 #define MK_KINETIC_MOUSE_FRIC 32
-#define MK_KINETIC_MOUSE_MAXS 196
+#define MK_KINETIC_MOUSE_MAXS 128
 
 // Good mousewheel
 #define MK_KINETIC_WHEEL_ACCN 16
