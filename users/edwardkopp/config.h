@@ -35,7 +35,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MK_KINETIC_MOUSE_DRAG 12
 #define MK_KINETIC_MOUSE_FRIC 96
 #define MK_KINETIC_MOUSE_MAXS 192
-#define MK_KINETIC_WHEEL_ACCN 32
+#define MK_KINETIC_WHEEL_ACCN 16
 #define MK_KINETIC_WHEEL_DRAG 8
-#define MK_KINETIC_WHEEL_FRIC 8
-#define MK_KINETIC_WHEEL_MAXS 2
+#define MK_KINETIC_WHEEL_FRIC 32
+#define MK_KINETIC_WHEEL_MAXS 1
