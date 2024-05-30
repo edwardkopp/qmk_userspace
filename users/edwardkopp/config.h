@@ -31,7 +31,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 // Slower lights
 #ifdef RGB_MATRIX_ENABLE
     #undef RGB_MATRIX_DEFAULT_SPD
-    #define RGB_MATRIX_DEFAULT_SPD 31
+    #define RGB_MATRIX_DEFAULT_SPD 63
 #endif
 
 
