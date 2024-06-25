@@ -8,4 +8,4 @@ My keymaps require to be compiled with [my custom QMK fork](https://github.com/e
 
 ## Original README
 
-The instructions from the original README file have been moved to `INSTRUCTIONS.md` .
+The original README can be accessed [here](https://github.com/qmk/qmk_userspace).
