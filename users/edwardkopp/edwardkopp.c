@@ -92,6 +92,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         case EK_RMOD:
             return shiftModifierLayerKey(KC_RSFT, _RMOD, pressed);
         case EK_SYM:
+            if (pressed)
+            {
+                layer_off(_RAT);
+            }
+            return true;
         case EK_NAV:
             return true;
     }
@@ -127,7 +132,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 // Make _RAT layer accessible
 layer_state_t layer_state_set_user(layer_state_t state)
 {
-    layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
+    layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _CONF);
     if (layer_state_cmp(new_layer_state, _RAT))
     {
         register_code(KC_ACL0);

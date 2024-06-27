@@ -26,6 +26,7 @@ enum rainbow_layer_cake
     _QWERTY,
     _SYMBOL,
     _NAV,
+    _CONF,
     _RAT,
     _RMOD,
     _LMOD
@@ -35,6 +36,7 @@ enum rainbow_layer_cake
 // Keycodes for exploration of the rainbow layer cake
 #define EK_SYM MO(_SYMBOL)
 #define EK_NAV MO(_NAV)
+#define EK_RAT TO(_RAT)
 #define EK_LMOD MO(_LMOD)
 #define EK_RMOD MO(_RMOD)
 
