@@ -36,7 +36,8 @@ const uint16_t specialModifiers[] = {
     EK_CAS,
     EK_GAS,
     EK_CGA,
-    EK_____
+    EK_____,
+    EK_XXXX
 };
 
 

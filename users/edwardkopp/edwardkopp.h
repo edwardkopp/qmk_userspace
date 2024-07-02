@@ -59,3 +59,4 @@ enum rainbow_layer_cake
 #define EK_GAS A(S(KC_LGUI))
 #define EK_CGA C(A(KC_LGUI))
 #define EK_____ _______
+#define EK_XXXX XXXXXXX
