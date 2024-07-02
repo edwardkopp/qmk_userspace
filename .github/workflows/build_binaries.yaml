@@ -1,50 +1,50 @@
 name: Build And Publish Binaries
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'keyboards/**'
-            - 'users/**'
-            - 'qmk.json'
-    pull_request:
-        branches:
-            - main
-        paths:
-            - 'keyboards/**'
-            - 'users/**'
-            - 'qmk.json'
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'keyboards/**'
+      - 'users/**'
+      - 'qmk.json'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'keyboards/**'
+      - 'users/**'
+      - 'qmk.json'
+  workflow_dispatch:
 
 permissions:
-    contents: write
+  contents: write
 
 jobs:
-    build:
-        name: 'Build QMK Userspace'
-        uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
-        with:
-            qmk_repo: edwardkopp/qmk_firmware
-            qmk_ref: main
+  build:
+    name: 'Build QMK Userspace'
+    uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
+    with:
+      qmk_repo: edwardkopp/qmk_firmware
+      qmk_ref: main
 
-    tagging:
-        name: 'Generate Publish Tag'
-        runs-on: ubuntu-latest
-        if: github.ref_name == 'main'
-        outputs:
-            tag: ${{steps.generate-tag.outputs.tag}}
-        steps:
-            -   name: Generate Tag String
-                id: generate-tag
-                run: echo "tag=$(date +%s)" >> "$GITHUB_OUTPUT"
+  tagging:
+    name: 'Generate Publish Tag'
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    outputs:
+      tag: ${{steps.generate-tag.outputs.tag}}
+    steps:
+      - name: Generate Tag String
+        id: generate-tag
+        run: echo "tag=$(date +%s)" >> "$GITHUB_OUTPUT"
 
-    publish:
-        name: 'Publish Binaries'
-        uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
-        if: always() && !cancelled() && github.ref_name == 'main'
-        needs:
-            - build
-            - tagging
-        with:
-            release_name: ${{needs.tagging.outputs.tag}}
+  publish:
+    name: 'Publish Binaries'
+    uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main
+    if: always() && !cancelled() && github.ref_name == 'main'
+    needs:
+      - build
+      - tagging
+    with:
+      release_name: ${{needs.tagging.outputs.tag}}
