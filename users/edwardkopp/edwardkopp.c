@@ -36,7 +36,8 @@ const uint16_t specialModifiers[] = {
     EK_CAS,
     EK_GAS,
     EK_CGA,
-    EK_____
+    EK_____,
+    EK_XXXX
 };
 
 
@@ -63,20 +64,19 @@ bool isModFresh = false;
 
 
 // Handles additional functionality for modifier layer activation keys
-bool shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool pressed)
+void shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool pressed)
 {
     if (pressed)
     {
         register_code(shiftKeycode);
         isModFresh = true;
-        return true;
+        return;
     }
     if (isModFresh || IS_LAYER_OFF(modifierLayer))
     {
         unregister_code(shiftKeycode);
     }
     isModFresh = false;
-    return true;
 }
 
 
@@ -88,9 +88,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     switch (keycode)
     {
         case EK_LMOD:
-            return shiftModifierLayerKey(KC_LSFT, _LMOD, pressed);
+            shiftModifierLayerKey(KC_LSFT, _LMOD, pressed);
+            return true;
         case EK_RMOD:
-            return shiftModifierLayerKey(KC_RSFT, _RMOD, pressed);
+            shiftModifierLayerKey(KC_RSFT, _RMOD, pressed);
+            return true;
         case EK_SYM:
         case EK_NAV:
             return true;

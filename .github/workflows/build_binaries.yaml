@@ -8,6 +8,13 @@ on:
       - 'keyboards/**'
       - 'users/**'
       - 'qmk.json'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'keyboards/**'
+      - 'users/**'
+      - 'qmk.json'
   workflow_dispatch:
 
 permissions:
