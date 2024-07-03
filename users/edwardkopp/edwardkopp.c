@@ -81,6 +81,16 @@ void shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool p
 }
 
 
+// Handles activation and deactivation of mouse clicks
+void mouseClickKey(uint8_t mouseKeyInt)
+{
+    report = pointing_device_get_report();
+    report.buttons ^= ~mouseKeyInt;
+    pointing_device_set_report(report);
+    pointing_device_send();
+}
+
+
 // Mouse booleans initialization
 bool mouseUpActive = false;
 bool mouseDownActive = false;
@@ -123,9 +133,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             scrollDownActive = pressed ? true : false;
         // Handle mouse click keys
         case EK_BTN1:
+            mouseClickKey(MOUSE_BTN1);
         case EK_BTN2:
+            mouseClickKey(MOUSE_BTN2);
         case EK_BTN3:
-            // TODO Implement mouse clicking
+            mouseClickKey(MOUSE_BTN3);
     }
     // Handle keys on the special modifier layers
     if (isModifierLayerKey(keycode) && pressed)
