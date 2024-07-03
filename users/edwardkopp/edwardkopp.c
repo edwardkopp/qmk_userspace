@@ -121,6 +121,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             scrollUpActive = pressed ? true : false;
         case EK_WH_D:
             scrollDownActive = pressed ? true : false;
+        // Handle mouse click keys
+        case EK_BTN1:
+        case EK_BTN2:
+        case EK_BTN3:
+            // TODO Implement mouse clicking
     }
     // Handle keys on the special modifier layers
     if (isModifierLayerKey(keycode) && pressed)
