@@ -84,7 +84,7 @@ void shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool p
 // Handles activation and deactivation of mouse clicks
 void mouseClickKey(uint8_t mouseKeyInt)
 {
-    report = pointing_device_get_report();
+    report_mouse_t report = pointing_device_get_report();
     report.buttons ^= ~mouseKeyInt;
     pointing_device_set_report(report);
     pointing_device_send();
