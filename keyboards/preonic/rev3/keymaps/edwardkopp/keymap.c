@@ -44,9 +44,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_RAT] = LAYOUT_preonic_grid(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        QK_BOOT, KC_VOLU, XXXXXXX, KC_WH_U, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_MS_U, KC_END,  KC_MPRV, KC_DEL,
-        KC_ESC,  KC_MUTE, XXXXXXX, KC_WH_D, KC_BTN1, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_MPLY, KC_ENT,
-        _______, KC_VOLD, XXXXXXX, KC_BTN3, KC_BTN2, XXXXXXX, XXXXXXX, KC_PGUP, KC_PSCR, KC_PGDN, KC_MNXT, _______,
+        QK_BOOT, KC_VOLU, XXXXXXX, EK_WH_U, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, EK_MS_U, KC_END,  KC_MPRV, KC_DEL,
+        KC_ESC,  KC_MUTE, XXXXXXX, EK_WH_D, EK_BTN1, XXXXXXX, XXXXXXX, EK_MS_L, EK_MS_D, EK_MS_R, KC_MPLY, KC_ENT,
+        _______, KC_VOLD, XXXXXXX, EK_BTN3, EK_BTN2, XXXXXXX, XXXXXXX, KC_PGUP, KC_PSCR, KC_PGDN, KC_MNXT, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_RMOD] = LAYOUT_preonic_grid(
