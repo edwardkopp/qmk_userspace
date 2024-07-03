@@ -192,7 +192,14 @@ void matrix_scan_user(void)
     if ((mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive) && timer_elapsed(lastMouseTime) >= 4)
     {
         report = pointing_device_get_report();
-        // TODO implement mouse movement
+        if (mouseUpActive || mouseDownActive)
+        {
+            report.y = mouseUpActive ? 4 : -4;
+        }
+        if (mouseLeftActive || mouseRightActive)
+        {
+            report.x = mouseRightActive ? 4 : -4;
+        }
     }
     if ((scrollUpActive || scrollDownActive) && timer_elapsed(lastScrollTime) >= 100)
     {
