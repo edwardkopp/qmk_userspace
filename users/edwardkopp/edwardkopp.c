@@ -222,7 +222,7 @@ void matrix_scan_user(void)
     {
         if (!report)
         {
-            report = pointing_device_set_report();
+            report = pointing_device_get_report();
         }
         report.v = scrollUpActive ? 1 : -1;
     }
