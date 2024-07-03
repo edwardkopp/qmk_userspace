@@ -236,11 +236,11 @@ void matrix_scan_user(void)
     {
         if (mouseUpActive || mouseDownActive)
         {
-            report.y = mouseUpActive ? 4 : -4;
+            report.y = mouseDownActive ? 1 : -1;
         }
         if (mouseLeftActive || mouseRightActive)
         {
-            report.x = mouseRightActive ? 4 : -4;
+            report.x = mouseRightActive ? 1 : -1;
         }
     }
     if (scrollActive && timer_elapsed(lastScrollTime) >= 100)
