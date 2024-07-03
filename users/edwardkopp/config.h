@@ -19,11 +19,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 
 
-// I would like to lower this back to 1 someday
-#define USB_POLLING_INTERVAL_MS 4
-
-
-// Allow mashing
+// Gaming keyboard
+#define USB_POLLING_INTERVAL_MS 1
 #define QMK_KEYS_PER_SCAN 12
 #define FORCE_NKRO
 
