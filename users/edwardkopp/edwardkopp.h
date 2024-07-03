@@ -60,3 +60,20 @@ enum rainbow_layer_cake
 #define EK_CGA C(A(KC_LGUI))
 #define EK_____ _______
 #define EK_XXXX XXXXXXX
+
+
+// Other keycodes that have completely custom implementations
+enum woah
+{
+    EK_SAFE = SAFE_RANGE, // No implementation
+    // Custom mouse implementation
+    EK_MS_U,
+    EK_MS_D,
+    EK_MS_L,
+    EK_MS_R,
+    EK_BTN1,
+    EK_BTN2,
+    EK_BTN3,
+    EK_WH_U,
+    EK_WH_D
+};

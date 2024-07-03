@@ -97,9 +97,10 @@ bool mouse3Active = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     bool pressed = record->event.pressed;
-    // Handle layer activation keys
+    // Custom or additional key implementations
     switch (keycode)
     {
+        // Handle layer activation keys
         case EK_LMOD:
             shiftModifierLayerKey(KC_LSFT, _LMOD, pressed);
             return true;
@@ -109,6 +110,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         case EK_SYM:
         case EK_NAV:
             return true;
+        // Handle mouse wheel keys
+        case EK_WH_U:
+            if (pressed)
+            {
+                scrollUpActive = true;
+            }
+            else
+            {
+                scrollUpActive = false;
+            }
+            return false;
+        case EK_WH_D:
+            if (pressed)
+            {
+                scrollDownActive = true;
+            }
+            else
+            {
+                scrollDownActive = false;
+            }
+            return false;
     }
     // Handle keys on the special modifier layers
     if (isModifierLayerKey(keycode) && pressed)
