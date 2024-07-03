@@ -33,18 +33,3 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     #undef RGB_MATRIX_DEFAULT_SPD
     #define RGB_MATRIX_DEFAULT_SPD 63
 #endif
-
-
-// Good mouse
-#define MK_VARIANT MK_TYPE_KINETIC
-#define MK_KINETIC_MOUSE_ACCN 12
-#define MK_KINETIC_MOUSE_DRAG 24
-#define MK_KINETIC_MOUSE_FRIC 48
-#define MK_KINETIC_MOUSE_MAXS 192
-
-
-// Good mousewheel
-#define MK_KINETIC_WHEEL_ACCN 16
-#define MK_KINETIC_WHEEL_DRAG 16
-#define MK_KINETIC_WHEEL_FRIC 32
-#define MK_KINETIC_WHEEL_MAXS 1
