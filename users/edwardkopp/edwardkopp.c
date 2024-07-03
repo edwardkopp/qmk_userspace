@@ -242,10 +242,12 @@ void matrix_scan_user(void)
         {
             report.x = mouseRightActive ? 1 : -1;
         }
+        lastMouseTime = timer_read();
     }
-    if (scrollActive && timer_elapsed(lastScrollTime) >= 200)
+    if (scrollActive && timer_elapsed(lastScrollTime) >= 100)
     {
         report.v = scrollUpActive ? 1 : -1;
+        lastScrollTime = timer_read();
     }
     pointing_device_set_report(report);
     pointing_device_send();
