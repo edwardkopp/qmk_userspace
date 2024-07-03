@@ -88,9 +88,6 @@ bool mouseLeftActive = false;
 bool mouseRightActive = false;
 bool scrollUpActive = false;
 bool scrollDownActive = false;
-bool mouse1Active = false;
-bool mouse2Active = false;
-bool mouse3Active = false;
 
 
 // Some real magic
@@ -213,14 +210,6 @@ void matrix_scan_user(void)
             report = pointing_device_set_report();
         }
         report.v = scrollUpActive ? 1 : -1;
-    }
-    if (mouse1Active || mouse2Active || mouse3Active)
-    {
-        if (!report)
-        {
-            report = pointing_device_set_report();
-        }
-        // TODO implement scrolling
     }
     if (report)
     {
