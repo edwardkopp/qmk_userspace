@@ -181,7 +181,6 @@ layer_state_t layer_state_set_user(layer_state_t state)
 // Times for mouse magic
 uint16_t lastMouseTime;
 uint16_t lastScrollTime;
-uint16_t lastClickTime;
 
 
 // Initialize times for mouse magic
@@ -189,7 +188,6 @@ void keyboard_post_init_user(void)
 {
     lastMouseTime = timer_read();
     lastScrollTime = timer_read();
-    lastClickTime = timer_read();
 }
 
 
