@@ -17,6 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 #include "edwardkopp.h"
+#include "pointing_device.h"
 
 
 // Tuple for referencing these special modifiers
@@ -78,6 +79,25 @@ void shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool p
     }
     isModFresh = false;
 }
+
+
+// Mouse booleans initialization
+bool mouseUpActive = false;
+bool mouseDownActive = false;
+bool mouseLeftActive = false;
+bool mouseRightActive = false;
+bool scrollUpActive = false;
+bool scrollDownActive = false;
+bool scrollLeftActive = false;
+bool scrollRightActive = false;
+bool mouse1Active = false;
+bool mouse2Active = false;
+bool mouse3Active = false;
+bool mouse4Active = false;
+bool mouse5Active = false;
+bool mouse6Active = false;
+bool mouse7Active = false;
+bool mouse8Active = false;
 
 
 // Some real magic
@@ -145,4 +165,35 @@ layer_state_t layer_state_set_user(layer_state_t state)
         #endif
     }
     return new_layer_state;
+}
+
+
+// Times for mouse magic
+uint16_t lastMouseTime;
+uint16_t lastScrollTime;
+uint16_t lastClickTime;
+
+
+// Initialize times for mouse magic
+void keyboard_post_init_user(void)
+{
+    lastMouseTime = timer_read();
+    lastScrollTime = timer_read();
+    lastClickTime = timer_read();
+    // use timer_elapsed(lastMouseTime) later (returns ms since parameter time)
+}
+
+
+// Dangerous mouse magic
+void matrix_scan_user(void)
+{
+    bool mouseMoveActive = mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive;
+    bool scrollActive = scrollUpActive || scrollDownActive || scrollLeftActive || scrollRightActive;
+    bool clickActive = mouse1Active || mouse2Active || mouse3Active || mouse4Active || mouse5Active || mouse6Active || mouse7Active || mouse8Active;
+    if (mouseMoveActive || scrollActive || clickActive)
+    {
+        report_mouse_t report = pointing_device_get_report();
+        pointing_device_set_report(report);
+        pointing_device_send();
+    }
 }
