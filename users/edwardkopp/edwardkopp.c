@@ -109,42 +109,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             return true;
         // Handle mouse movement keys
         case EK_MS_U:
-            if (pressed)
-            {
-                mouseUpActive = true;
-            }
-            mouseUpActive = false;
+            mouseUpActive = pressed ? true : false;
         case EK_MS_D:
-            if (pressed)
-            {
-                mouseDownActive = true;
-            }
-            mouseDownActive = false;
+            mouseDownActive = pressed ? true : false;
         case EK_MS_L:
-            if (pressed)
-            {
-                mouseLeftActive = true;
-            }
-            mouseLeftActive = false;
+            mouseLeftActive = pressed ? true : false;
         case EK_MS_R:
-            if (pressed)
-            {
-                mouseRightActive = true;
-            }
-            mouseRightActive = false;
+            mouseRightActive = pressed ? true : false;
         // Handle mouse wheel keys
         case EK_WH_U:
-            if (pressed)
-            {
-                scrollUpActive = true;
-            }
-            scrollUpActive = false;
+            scrollUpActive = pressed ? true : false;
         case EK_WH_D:
-            if (pressed)
-            {
-                scrollDownActive = true;
-            }
-            scrollDownActive = false;
+            scrollDownActive = pressed ? true : false;
     }
     // Handle keys on the special modifier layers
     if (isModifierLayerKey(keycode) && pressed)
