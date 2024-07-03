@@ -196,7 +196,7 @@ void matrix_scan_user(void)
 {
     // Dangerous mouse magic
     report_mouse_t report;
-    if (mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive)
+    if ((mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive) && timer_elapsed(lastMouseTime) >= 4)
     {
         report = pointing_device_get_report();
         // TODO implement mouse movement
