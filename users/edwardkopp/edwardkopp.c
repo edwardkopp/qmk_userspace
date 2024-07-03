@@ -82,10 +82,21 @@ void shiftModifierLayerKey(uint16_t shiftKeycode, uint16_t modifierLayer, bool p
 
 
 // Handles activation and deactivation of mouse clicks
-void mouseClickKey(uint8_t mouseKeyInt)
+void mouseClickKey(uint8_t mouseKeyInt, bool pressed)
 {
     report_mouse_t report = pointing_device_get_report();
-    report.buttons ^= ~mouseKeyInt;
+    if (pressed && report.buttons < mouseKeyInt)
+    {
+        report.buttons += mouseKeyInt;
+    }
+    else if (!pressed && report.buttons >= mouseKeyInt)
+    {
+        report.buttons -= mouseKeyInt;
+    }
+    else
+    {
+        return;
+    }
     pointing_device_set_report(report);
     pointing_device_send();
 }
@@ -139,13 +150,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             break;
         // Handle mouse click keys
         case EK_BTN1:
-            mouseClickKey(MOUSE_BTN1);
+            mouseClickKey(MOUSE_BTN1, pressed);
             break;
         case EK_BTN2:
-            mouseClickKey(MOUSE_BTN2);
+            mouseClickKey(MOUSE_BTN2, pressed);
             break;
         case EK_BTN3:
-            mouseClickKey(MOUSE_BTN3);
+            mouseClickKey(MOUSE_BTN3, pressed);
             break;
     }
     // Handle keys on the special modifier layers
