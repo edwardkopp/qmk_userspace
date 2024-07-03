@@ -232,7 +232,7 @@ void matrix_scan_user(void)
         return;
     }
     report_mouse_t report = pointing_device_get_report();
-    if (mouseActive && timer_elapsed(lastMouseTime) >= 4)
+    if (mouseActive && timer_elapsed(lastMouseTime) > 4)
     {
         if (mouseUpActive || mouseDownActive)
         {
@@ -244,7 +244,7 @@ void matrix_scan_user(void)
         }
         lastMouseTime = timer_read();
     }
-    if (scrollActive && timer_elapsed(lastScrollTime) >= 100)
+    if (scrollActive && timer_elapsed(lastScrollTime) > 50)
     {
         report.v = scrollUpActive ? 1 : -1;
         lastScrollTime = timer_read();
