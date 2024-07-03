@@ -88,16 +88,9 @@ bool mouseLeftActive = false;
 bool mouseRightActive = false;
 bool scrollUpActive = false;
 bool scrollDownActive = false;
-bool scrollLeftActive = false;
-bool scrollRightActive = false;
 bool mouse1Active = false;
 bool mouse2Active = false;
 bool mouse3Active = false;
-bool mouse4Active = false;
-bool mouse5Active = false;
-bool mouse6Active = false;
-bool mouse7Active = false;
-bool mouse8Active = false;
 
 
 // Some real magic
@@ -178,19 +171,37 @@ void keyboard_post_init_user(void)
     lastMouseTime = timer_read();
     lastScrollTime = timer_read();
     lastClickTime = timer_read();
-    // use timer_elapsed(lastMouseTime) later (returns ms since parameter time)
 }
 
 
-// Dangerous mouse magic
+// Dangerous magic
 void matrix_scan_user(void)
 {
-    bool mouseMoveActive = mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive;
-    bool scrollActive = scrollUpActive || scrollDownActive || scrollLeftActive || scrollRightActive;
-    bool clickActive = mouse1Active || mouse2Active || mouse3Active || mouse4Active || mouse5Active || mouse6Active || mouse7Active || mouse8Active;
-    if (mouseMoveActive || scrollActive || clickActive)
+    // Dangerous mouse magic
+    report_mouse_t report;
+    if (mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive)
     {
-        report_mouse_t report = pointing_device_get_report();
+        report = pointing_device_get_report();
+        // TODO implement mouse movement
+    }
+    if ((scrollUpActive || scrollDownActive) && timer_elapsed(lastScrollTime) >= 100)
+    {
+        if (!report)
+        {
+            report = pointing_device_set_report();
+        }
+        report.v = scrollUpActive ? 1 : -1;
+    }
+    if (mouse1Active || mouse2Active || mouse3Active)
+    {
+        if (!report)
+        {
+            report = pointing_device_set_report();
+        }
+        // TODO implement scrolling
+    }
+    if (report)
+    {
         pointing_device_set_report(report);
         pointing_device_send();
     }
