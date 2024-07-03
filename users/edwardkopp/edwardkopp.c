@@ -214,11 +214,15 @@ void keyboard_post_init_user(void)
 void matrix_scan_user(void)
 {
     // Dangerous mouse magic
-    report_mouse_t report;
     bool mouseActive = mouseUpActive || mouseDownActive || mouseLeftActive || mouseRightActive;
+    bool scrollActive = scrollUpActive || scrollDownActive;
+    if (!(mouseActive || scrollActive))
+    {
+        return;
+    }
+    report_mouse_t report = pointing_device_get_report();
     if (mouseActive && timer_elapsed(lastMouseTime) >= 4)
     {
-        report = pointing_device_get_report();
         if (mouseUpActive || mouseDownActive)
         {
             report.y = mouseUpActive ? 4 : -4;
@@ -228,20 +232,12 @@ void matrix_scan_user(void)
             report.x = mouseRightActive ? 4 : -4;
         }
     }
-    bool scrollActive = scrollUpActive || scrollDownActive;
     if (scrollActive && timer_elapsed(lastScrollTime) >= 100)
     {
-        if (!mouseActive)
-        {
-            report = pointing_device_get_report();
-        }
         report.v = scrollUpActive ? 1 : -1;
     }
-    if (mouseActive || scrollActive)
-    {
-        pointing_device_set_report(report);
-        pointing_device_send();
-    }
+    pointing_device_set_report(report);
+    pointing_device_send();
 }
 
 
