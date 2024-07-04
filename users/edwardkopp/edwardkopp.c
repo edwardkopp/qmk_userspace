@@ -41,68 +41,9 @@ const uint16_t specialModifiers[] = {
 };
 
 
+// Tracking of mouse movement for RGB toggling
 #ifdef RGB_MATRIX_ENABLE
-// Tuple for detecting keys that move the mouse
-const uint16_t mouseMovers[] = {
-    KC_MS_U,
-    KC_MS_D,
-    KC_MS_R,
-    KC_MS_L
-};
-
-
-// Size of mouseMovers tuple
-const size_t mouseMoversCount = sizeof(mouseMovers) / sizeof(mouseMovers[0]);
-
-
-// Tuple for detecting other keys relating to the mouse
-const uint16_t mouseOthers[] = {
-    KC_WH_U,
-    KC_WH_D,
-    KC_BTN1,
-    KC_BTN2,
-    KC_BTN3
-};
-
-
-// Size of mouseOthers tuple
-const size_t mouseOthersCount = sizeof(mouseOthers) / sizeof(mouseMovers[0]);
-
-
-// Tracking if mouse is likely moving or about to move
 bool mouseActive = false;
-
-
-// Checks if a given keycode is a mouse mover
-bool isMouseMoverKey(uint16_t keycode)
-{
-    for (size_t i = 0; i < mouseMoversCount; i++)
-    {
-        if (mouseMovers[i] == keycode)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-// Checks if a given keycode relates to the mouse
-bool isMouseKey(uint16_t keycode)
-{
-    if (isMouseMoverKey(keycode))
-    {
-        return true;
-    }
-    for (size_t i = 0; i < mouseOthersCount; i++)
-    {
-        if (mouseOthers[i] == keycode)
-        {
-            return true;
-        }
-    }
-    return false;
-}
 #endif
 
 
@@ -169,12 +110,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     }
     #ifdef RGB_MATRIX_ENABLE
     // Handle RGB if mouse keys are involved
-    if (isMouseMoverKey(keycode) && !mouseActive)
+    if (IS_MOUSEKEY_MOVE(keycode) && !mouseActive)
     {
         mouseActive = true;
         rgb_matrix_disable_noeeprom();
     }
-    else if (mouseActive && !isMouseKey(keycode) && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV))
+    else if (mouseActive && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV))
     {
         mouseActive = false;
         rgb_matrix_enable_noeeprom();
