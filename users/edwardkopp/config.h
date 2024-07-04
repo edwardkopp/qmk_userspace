@@ -39,12 +39,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define MK_VARIANT MK_TYPE_KINETIC
 #define MK_KINETIC_MOUSE_ACCN 4
 #define MK_KINETIC_MOUSE_DRAG 0
-#define MK_KINETIC_MOUSE_FRIC 48
+#define MK_KINETIC_MOUSE_FRIC 64
 #define MK_KINETIC_MOUSE_MAXS 240
 
 
 // Good mousewheel
 #define MK_KINETIC_WHEEL_ACCN 240
 #define MK_KINETIC_WHEEL_DRAG 128
-#define MK_KINETIC_WHEEL_FRIC 48
+#define MK_KINETIC_WHEEL_FRIC 64
 #define MK_KINETIC_WHEEL_MAXS 1
