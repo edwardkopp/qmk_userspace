@@ -174,7 +174,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         mouseActive = true;
         rgb_matrix_disable_noeeprom();
     }
-    else if (!isMouseKey(keycode) && mouseActive)
+    else if (mouseActive && !isMouseKey(keycode) && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV))
     {
         mouseActive = false;
         rgb_matrix_enable_noeeprom();
