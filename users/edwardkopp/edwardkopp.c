@@ -41,6 +41,24 @@ const uint16_t specialModifiers[] = {
 };
 
 
+// Disable RGB matrix lighting
+void rgbMatrixOff(void)
+{
+    #ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_disable_noeeprom();
+    #endif
+}
+
+
+// Enable RGB matrix lighting
+void rgbMatrixOn(void)
+{
+    #ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_enable_noeeprom();
+    #endif
+}
+
+
 // Calculate the keycode count of the tuple
 size_t specialModifiersCount = sizeof(specialModifiers) / sizeof(specialModifiers[0]);
 
@@ -132,15 +150,11 @@ layer_state_t layer_state_set_user(layer_state_t state)
     layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
     if (layer_state_cmp(new_layer_state, _RAT))
     {
-        #ifdef RGB_MATRIX_ENABLE
-        rgb_matrix_disable_noeeprom();
-        #endif
+        rgbMatrixOff();
     }
     else
     {
-        #ifdef RGB_MATRIX_ENABLE
-        rgb_matrix_enable_noeeprom();
-        #endif
+        rgbMatrixOn();
     }
     return new_layer_state;
 }
