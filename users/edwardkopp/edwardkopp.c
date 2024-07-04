@@ -41,6 +41,7 @@ const uint16_t specialModifiers[] = {
 };
 
 
+#ifdef RGB_MATRIX_ENABLE
 // Tuple for detecting keys that move the mouse
 const uint16_t mouseMovers[] = {
     KC_MS_U,
@@ -102,24 +103,7 @@ bool isMouseKey(uint16_t keycode)
     }
     return false;
 }
-
-
-// Disable RGB matrix lighting
-void rgbMatrixOff(void)
-{
-    #ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_disable_noeeprom();
-    #endif
-}
-
-
-// Enable RGB matrix lighting
-void rgbMatrixOn(void)
-{
-    #ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_enable_noeeprom();
-    #endif
-}
+#endif
 
 
 // Calculate the keycode count of the tuple
@@ -178,19 +162,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         case EK_NAV:
             return true;
     }
+    // Nothing beyond this point processes on release
+    if (!pressed)
+    {
+        return true;
+    }
+    #ifdef RGB_MATRIX_ENABLE
     // Handle RGB if mouse keys are involved
-    if (isMouseMoverKey(keycode) && !mouseActive && pressed)
+    if (isMouseMoverKey(keycode) && !mouseActive)
     {
         mouseActive = true;
-        rgbMatrixOff();
+        rgb_matrix_disable_noeeprom();
     }
-    else if (!isMouseKey(keycode) && mouseActive && pressed)
+    else if (!isMouseKey(keycode) && mouseActive)
     {
         mouseActive = false;
-        rgbMatrixOn();
+        rgb_matrix_enable_noeeprom();
     }
+    #endif
     // Handle keys on the special modifier layers
-    if (isModifierLayerKey(keycode) && pressed)
+    if (isModifierLayerKey(keycode))
     {
         if (!isModFresh)
         {
@@ -208,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         return true;
     }
     // At this point, the keycode isn't on the modifier layer
-    if (isModFresh && pressed)
+    if (isModFresh)
     {
         layer_off(_LMOD);
         layer_off(_RMOD);
