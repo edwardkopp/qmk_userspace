@@ -30,9 +30,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     bool pressed = record->event.pressed;
     // Make _RAT layer accessible
-    if ((keycode == EK_SYM || keycode == EK_NAV) && pressed)
+    if (!pressed)
     {
+        return true;
+    }
+    else if (keycode == EK_SYM || keycode == EK_NAV)
+    {
+        register_code(keycode);
         update_tri_layer(_SYMBOL, _NAV, _RAT);
+        return false;
     }
 #ifdef RGB_MATRIX_ENABLE
     // Handle RGB if mouse keys are involved
