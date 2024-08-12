@@ -28,8 +28,9 @@ bool mouseActive = false;
 // Some real magic
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
+    bool pressed = record->event.pressed;
     // Make _RAT layer accessible
-    if ((keycode == EK_SYM || keycode == EK_NAV) && record->event.pressed)
+    if ((keycode == EK_SYM || keycode == EK_NAV) && pressed)
     {
         update_tri_layer(_SYMBOL, _NAV, _RAT);
     }
