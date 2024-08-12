@@ -34,9 +34,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     {
         return true;
     }
-    else if (keycode == EK_SYM || keycode == EK_NAV)
+    else if (keycode == EK_SYM)
     {
-        register_code(keycode);
+        layer_on(_SYMBOL);
+        update_tri_layer(_SYMBOL, _NAV, _RAT);
+        return false;
+    }
+    else if (keycode == EK_NAV)
+    {
+        layer_on(_NAV);
         update_tri_layer(_SYMBOL, _NAV, _RAT);
         return false;
     }
