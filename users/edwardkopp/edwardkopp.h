@@ -34,4 +34,4 @@ enum rainbow_layer_cake
 // Keycodes for exploration of the rainbow layer cake
 #define EK_SYM MO(_SYMBOL)
 #define EK_NAV MO(_NAV)
-#define EK_MOD LT(_MOD, KC_SPC)
+#define EK_MOD MO(_MOD)
