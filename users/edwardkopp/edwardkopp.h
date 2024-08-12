@@ -27,36 +27,11 @@ enum rainbow_layer_cake
     _SYMBOL,
     _NAV,
     _RAT,
-    _RMOD,
-    _LMOD
+    _MOD
 };
 
 
 // Keycodes for exploration of the rainbow layer cake
 #define EK_SYM MO(_SYMBOL)
 #define EK_NAV MO(_NAV)
-#define EK_LMOD MO(_LMOD)
-#define EK_RMOD MO(_RMOD)
-
-
-// Single modifier keycodes associated with the modifier layers
-#define EK_GUI KC_LGUI
-#define EK_LCTL KC_LCTL
-#define EK_LALT KC_LALT
-#define EK_RCTL KC_RCTL
-#define EK_RALT KC_RALT
-
-
-// Special keycodes associated with the modifier layers
-#define EK_CS S(KC_LCTL)
-#define EK_GS S(KC_LGUI)
-#define EK_AS S(KC_LALT)
-#define EK_CG C(KC_LGUI)
-#define EK_CA C(KC_LALT)
-#define EK_GA A(KC_LGUI)
-#define EK_CGS C(S(KC_LGUI))
-#define EK_CAS C(A(KC_LSFT))
-#define EK_GAS A(S(KC_LGUI))
-#define EK_CGA C(A(KC_LGUI))
-#define EK_____ _______
-#define EK_XXXX XXXXXXX
+#define EK_MOD LT(_MOD, KC_SPC)

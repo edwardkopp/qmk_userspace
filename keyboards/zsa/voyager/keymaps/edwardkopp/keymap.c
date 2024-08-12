@@ -25,8 +25,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-        EK_LMOD, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, EK_RMOD,
-                                            EK_SYM,  KC_SPC,  KC_SPC,  EK_NAV
+        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                                            EK_SYM,  EK_MOD,  KC_SPC,  EK_NAV
     ),
     [_SYMBOL] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         KC_INS,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_MPRV, KC_DEL,
         KC_PAUS, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_ENT,
-        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, KC_PGUP, KC_CAPS, KC_PGDN, KC_MNXT, _______,
+        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX, KC_PGDN, KC_MNXT, _______,
                                             _______, _______, _______, _______
     ),
     [_RAT] = LAYOUT_voyager(
@@ -49,18 +49,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_VOLD, XXXXXXX, KC_BTN3, KC_BTN2, XXXXXXX, XXXXXXX, KC_PGUP, KC_PSCR, KC_PGDN, KC_MNXT, _______,
                                             _______, _______, _______, _______
     ),
-    [_RMOD] = LAYOUT_voyager(
-        _______, _______, _______, _______, _______, _______, EK_____, EK_____, EK_____, EK_____, EK_____, EK_____,
-        _______, _______, _______, _______, _______, _______, EK_CGS,  EK_CS,   EK_GS,   EK_AS,   EK_____, EK_____,
-        _______, _______, _______, _______, _______, _______, EK_CAS,  EK_RCTL, EK_GUI,  EK_RALT, EK_CGA,  EK_____,
-        EK_XXXX, _______, _______, _______, _______, _______, EK_GAS,  EK_CG,   EK_CA,   EK_GA,   EK_____, _______,
-                                            _______, _______, _______, _______
-    ),
-    [_LMOD] = LAYOUT_voyager(
-        EK_____, EK_____, EK_____, EK_____, EK_____, EK_____, _______, _______, _______, _______, _______, _______,
-        EK_____, EK_____, EK_AS,   EK_GS,   EK_CS,   EK_CGS,  _______, _______, _______, _______, _______, _______,
-        EK_____, EK_CGA,  EK_LALT, EK_GUI,  EK_LCTL, EK_CAS,  _______, _______, _______, _______, _______, _______,
-        _______, EK_____, EK_GA,   EK_CA,   EK_CG,   EK_GAS,  _______, _______, _______, _______, _______, EK_XXXX,
-                                            _______, _______, _______, _______
+    [_MOD] = LAYOUT_voyager(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______, _______, KC_RSFT, KC_RCTL, KC_RALT, KC_LGUI, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                            _______, _______, KC_CAPS, _______
     )
 };
