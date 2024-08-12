@@ -28,12 +28,6 @@ bool mouseActive = false;
 // Some real magic
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-    bool pressed = record->event.pressed;
-    // Make _RAT layer accessible
-    if ((keycode == EK_SYM || keycode == EK_NAV) && pressed)
-    {
-        update_tri_layer(_SYMBOL, _NAV, _RAT);
-    }
 #ifdef RGB_MATRIX_ENABLE
     // Handle RGB if mouse keys are involved
     if (IS_MOUSEKEY_MOVE(keycode) && !mouseActive)
@@ -51,9 +45,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 }
 
 
-// Reset mouse acceleration whenever entering _RAT layer
+// Make _RAT layer accessible, and reset mouse acceleration when entering _RAT layer
 layer_state_t layer_state_set_user(layer_state_t state)
 {
+    state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
     if (layer_state_cmp(state, _RAT))
     {
         register_code(KC_ACL0);
