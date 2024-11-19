@@ -34,16 +34,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     {
         return true;
     }
-    else if (keycode == EK_SYM)
+    else if (keycode == _LMOD)
     {
-        layer_on(_SYMBOL);
-        update_tri_layer(_SYMBOL, _NAV, _RAT);
+        layer_on(_LMOD);
+        update_tri_layer(_LMOD, _RMOD, _RAT);
         return false;
     }
-    else if (keycode == EK_NAV)
+    else if (keycode == _RMOD)
     {
-        layer_on(_NAV);
-        update_tri_layer(_SYMBOL, _NAV, _RAT);
+        layer_on(_RMOD);
+        update_tri_layer(_LMOD, _RMOD, _RAT);
         return false;
     }
 #ifdef RGB_MATRIX_ENABLE
