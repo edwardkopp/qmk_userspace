@@ -30,23 +30,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_LMOD] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, KC_LGUI, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, KC_LPRN, KC_LBRC, KC_LCBR, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, KC_LGUI, KC_TAB,  KC_MINS, _______, _______, _______, _______, _______, _______,
+        _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_UNDS, _______, _______, _______, _______, _______, _______,
+        _______, KC_BSLS, KC_PIPE, KC_LPRN, KC_LBRC, KC_LCBR, _______, _______, _______, _______, _______, _______,
                                             _______, _______, _______, _______
     ),
     [_RMOD] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MNXT, KC_LGUI, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MNXT, KC_LGUI, KC_BSPC, KC_DEL,  _______,
         _______, _______, _______, _______, _______, _______, KC_MPLY, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, _______,
-        _______, _______, _______, _______, _______, _______, KC_RCBR, KC_RBRC, KC_RPRN, KC_PIPE, KC_BSLS, _______,
+        _______, _______, _______, _______, _______, _______, KC_RCBR, KC_RBRC, KC_RPRN, _______, KC_ENT,  _______,
                                             _______, _______, _______, _______
     ),
     [_SYMBOL] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, XXXXXXX, XXXXXXX, KC_DEL,
         KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_ENT,
-        _______, XXXXXXX, XXXXXXX, KC_PLUS, KC_EQL,  KC_UNDS, KC_MINS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, XXXXXXX, KC_PLUS, KC_EQL,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
                                             _______, _______, EK_NAV,  _______
     ),
     [_NAV] = LAYOUT_voyager(
