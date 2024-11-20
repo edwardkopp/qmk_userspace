@@ -68,6 +68,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 // Reset mouse acceleration whenever entering _RAT layer
 layer_state_t layer_state_set_user(layer_state_t state)
 {
+    layer_state_t new_layer_state = update_tri_layer_state(state, _LMOD, _RMOD, _NAV);
     if (layer_state_cmp(state, _RAT))
     {
         register_code(KC_ACL0);
