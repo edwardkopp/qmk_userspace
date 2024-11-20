@@ -37,13 +37,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     else if (keycode == _LMOD)
     {
         layer_on(_LMOD);
-        update_tri_layer(_LMOD, _RMOD, _RAT);
+        update_tri_layer(_LMOD, _RMOD, _NAV);
         return false;
     }
     else if (keycode == _RMOD)
     {
         layer_on(_RMOD);
-        update_tri_layer(_LMOD, _RMOD, _RAT);
+        update_tri_layer(_LMOD, _RMOD, _NAV);
         return false;
     }
 #ifdef RGB_MATRIX_ENABLE
