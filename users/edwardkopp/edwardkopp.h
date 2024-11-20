@@ -35,4 +35,3 @@ enum rainbow_layer_cake
 #define EK_LEFT MO(_LMOD)
 #define EK_RGHT MO(_RMOD)
 #define EK_RAT MO(_RAT)
-#define EK_MOD LT(_MOD, KC_SPC)
