@@ -34,13 +34,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     {
         return true;
     }
-    else if (keycode == _LMOD)
+    else if (keycode == EK_LEFT)
     {
         layer_on(_LMOD);
         update_tri_layer(_LMOD, _RMOD, _NAV);
         return false;
     }
-    else if (keycode == _RMOD)
+    else if (keycode == EK_RGHT)
     {
         layer_on(_RMOD);
         update_tri_layer(_LMOD, _RMOD, _NAV);
