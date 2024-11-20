@@ -29,11 +29,12 @@ bool mouseActive = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     bool pressed = record->event.pressed;
-    // Make _RAT layer accessible
+    // Make _NAV layer accessible
     if (!pressed)
     {
         return true;
     }
+    // Overriding the key-down action for EK_LEFT and EK_RGHT to use tri-layer code here so it can
     else if (keycode == EK_LEFT)
     {
         layer_on(_LMOD);
@@ -53,6 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         mouseActive = true;
         rgb_matrix_disable_noeeprom();
     }
+    // TODO This code here can be changed
     else if (mouseActive && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV))
     {
         mouseActive = false;
