@@ -8,7 +8,7 @@ My keymaps are incompatible with the main QMK firmware branch, and must be compi
 
 ## Mac Compatibility
 
-I don't have dedicated layers for MacOS as I just swap Command and Control.
+I don't have dedicated layers for Mac as I just swap Command and Control in System Settings.
 
 <img width="440" alt="Screenshot 2024-12-17 at 18 30 56" src="https://github.com/user-attachments/assets/f58469ba-8b38-4704-a6df-9a58a2bcaa14" />
 
