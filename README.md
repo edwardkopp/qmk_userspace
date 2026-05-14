@@ -15,3 +15,24 @@ I don't have dedicated layers for Mac as I just swap Command and Control in Syst
 ## Original README
 
 The original README can be found [here](https://github.com/qmk/qmk_userspace).
+
+## Flashing From Linux
+
+I only flash my keyboards from Linux, so I only have Linux instructions. Install and set up QMK CLI using the following command:
+
+```shell
+curl -fsSL https://install.qmk.fm | sh
+
+# After installation
+qmk setup
+qmk doctor
+```
+
+### ZSA Voyager
+
+To allow flashing, create `/etc/udev/rules.d/50-zsa.rules` with the following contents:
+
+```shell
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu", GROUP="plugdev"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE="0666", GROUP="plugdev"
+```
