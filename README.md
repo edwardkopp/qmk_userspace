@@ -23,9 +23,8 @@ qmk doctor
 To allow flashing, create `/etc/udev/rules.d/50-zsa.rules` with the following contents:
 
 ```shell
-# ZSA Voyager
+# ZSA Voyager flashing only
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE="0666"
 ```
 
 Then update udev rules:
