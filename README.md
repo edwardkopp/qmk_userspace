@@ -27,11 +27,10 @@ To allow flashing, create `/etc/udev/rules.d/50-zsa.rules` with the following co
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
 ```
 
-Then update udev rules:
+Then reload udev rules:
 
 ```shell
-udevadm control --reload-rules
-udevadm trigger
+sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
 To flash, you need to use [Zapp](https://github.com/zsa/zapp) instead of QMK. It's most convenient to just have the Zapp binary and the firmware binary in the same directory so flashes are just like this:
