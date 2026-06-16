@@ -8,13 +8,6 @@ on:
       - 'keyboards/**'
       - 'users/**'
       - 'qmk.json'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'keyboards/**'
-      - 'users/**'
-      - 'qmk.json'
   workflow_dispatch:
 
 permissions:
@@ -37,7 +30,7 @@ jobs:
     steps:
       - name: Generate Tag String
         id: generate-tag
-        run: echo "tag=$(date +%s)" >> "$GITHUB_OUTPUT"
+        run: echo "tag=v$(date +'%Y.%m.%d')-${{github.run_number}}" >> "$GITHUB_OUTPUT"
 
   publish:
     name: 'Publish Binaries'
