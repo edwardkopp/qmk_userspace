@@ -47,10 +47,10 @@ bool should_block_mod(mod_layer_state_t side, bool pressed) {
 }
 
 
-// Registers or unregisters code according to boolean
-void set_code(uint16_t mod, bool pressed) {
-    if (pressed) register_code(mod);
-    else unregister_code(mod);
+// Registers or unregisters keycode according to boolean
+void set_code(uint16_t keycode, bool pressed) {
+    if (pressed) register_code(keycode);
+    else unregister_code(keycode);
 }
 
 
@@ -63,43 +63,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             if (pressed) {
                 left_space_time_pressed = timer_read();
                 mods_state = LISTEN;
-            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed < 200)) {
+            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed) < 200) {
                 tap_code(KC_SPC);
             }
             return true;
         case EK_LMOD_START ... EK_LMOD_END:
-            if (!should_block_mod(LEFT, pressed)) return true;
+            if (should_block_mod(LEFT, pressed)) return true;
             switch (keycode) {
-                case EK_LCTL:
-                    set_code(KC_LCTL, pressed);
-                    break;
-                case EK_LGUI:
-                    set_code(KC_LGUI, pressed);
-                    break;
-                case EK_LALT:
-                    set_code(KC_LALT, pressed);
-                    break;
-                case EK_LSFT:
-                    set_code(KC_LSFT, pressed);
-                    break;
+                case EK_LCTL: set_code(KC_LCTL, pressed); break;
+                case EK_LGUI: set_code(KC_LGUI, pressed); break;
+                case EK_LALT: set_code(KC_LALT, pressed); break;
+                case EK_LSFT: set_code(KC_LSFT, pressed); break;
             }
             return false;
         case EK_RMOD_START ... EK_RMOD_END:
-            if (!should_block_mod(RIGHT, pressed)) return true;
+            if (should_block_mod(RIGHT, pressed)) return true;
             switch (keycode) {
-                case EK_RCTL:
-                    set_code(KC_RCTL, pressed);
-                    break;
-                case EK_RGUI:
-                    // Intentionally KC_LGUI here
-                    set_code(KC_LGUI, pressed);
-                    break;
-                case EK_RALT:
-                    set_code(KC_RALT, pressed);
-                    break;
-                case EK_RSFT:
-                    set_code(KC_RSFT, pressed);
-                    break;
+                case EK_RCTL: set_code(KC_RCTL, pressed); break;
+                case EK_RGUI: set_code(KC_LGUI, pressed); break;  // Intentionally KC_LGUI here
+                case EK_RALT: set_code(KC_RALT, pressed); break;
+                case EK_RSFT: set_code(KC_RSFT, pressed); break;
             }
             return false;
     }
