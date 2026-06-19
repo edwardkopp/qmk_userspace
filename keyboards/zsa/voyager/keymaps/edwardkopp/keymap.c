@@ -38,15 +38,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NAV] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         KC_INS,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_MPRV, KC_DEL,
-        KC_PAUS, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_ENT,
-        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, KC_PGUP, KC_CAPS, KC_PGDN, KC_MNXT, _______,
+        KC_CAPS, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_ENT,
+        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX, KC_PGDN, KC_MNXT, _______,
                                             _______, _______, _______, _______
     ),
     [_RAT] = LAYOUT_voyager(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        XXXXXXX, XXXXXXX, XXXXXXX, MS_WHLU, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, MS_UP,   KC_END,  KC_MPRV, KC_DEL,
+        XXXXXXX, XXXXXXX, XXXXXXX, MS_WHLU, KC_PSCR, XXXXXXX, XXXXXXX, KC_HOME, MS_UP,   KC_END,  KC_MPRV, KC_DEL,
         KC_ESC,  XXXXXXX, MS_ACL1, MS_WHLD, MS_BTN1, XXXXXXX, XXXXXXX, MS_LEFT, MS_DOWN, MS_RGHT, KC_MPLY, KC_ENT,
-        _______, XXXXXXX, XXXXXXX, MS_BTN3, MS_BTN2, XXXXXXX, XXXXXXX, KC_PGUP, KC_PSCR, KC_PGDN, KC_MNXT, _______,
+        _______, XXXXXXX, XXXXXXX, MS_BTN3, MS_BTN2, XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX, KC_PGDN, KC_MNXT, _______,
                                             _______, _______, _______, _______
     ),
     [_LMOD] = LAYOUT_voyager(
