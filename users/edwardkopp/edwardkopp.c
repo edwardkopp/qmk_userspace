@@ -27,24 +27,7 @@ bool mouse_active = false;
 
 // Tracking of mod layer stuff
 uint16_t left_space_time_pressed = 0;
-typedef enum {
-    LISTEN = 0,
-    LEFT,
-    RIGHT
-} mod_layer_state_t;
-mod_layer_state_t mods_state = LISTEN;
-
-
-// Mods state logic (returns false if continue to process side, returns true if must cancel processing side)
-bool should_block_mod(mod_layer_state_t side, bool pressed) {
-    if (!pressed) return false;
-    if (mods_state == side) return false;
-    if (mods_state == LISTEN) {
-        mods_state = side;
-        return false;
-    }
-    return true;
-}
+bool mod_layer_listen_state = false;
 
 
 // Registers or unregisters keycode according to boolean
@@ -59,16 +42,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     bool pressed = record->event.pressed;
     switch (keycode) {
+        case EK_SYM:
+        case EK_NAV:
+            // This prevents layer keys
+            return true;
         case EK_LSPC:
             if (pressed) {
                 left_space_time_pressed = timer_read();
-                mods_state = LISTEN;
-            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed) < 200) {
+                mod_layer_listen_state = true;
+                layer_on(_LMOD);
+                layer_on(_RMOD);
+                return false;
+            }
+            layer_off(_LMOD);
+            layer_off(_RMOD);
+            if (mod_layer_listen_state && timer_elapsed(left_space_time_pressed) < 200) {
                 tap_code(KC_SPC);
             }
-            return true;
+            return false;
         case EK_LMOD_START ... EK_LMOD_END:
-            if (should_block_mod(LEFT, pressed)) return true;
+            if (mod_layer_listen_state) {
+                layer_off(_RMOD);
+                mod_layer_listen_state = false;
+            }
             switch (keycode) {
                 case EK_LCTL: set_code(KC_LCTL, pressed); break;
                 case EK_LGUI: set_code(KC_LGUI, pressed); break;
@@ -77,7 +73,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             }
             return false;
         case EK_RMOD_START ... EK_RMOD_END:
-            if (should_block_mod(RIGHT, pressed)) return true;
+            if (mod_layer_listen_state) {
+                layer_off(_LMOD);
+                mod_layer_listen_state = false;
+            }
             switch (keycode) {
                 case EK_RCTL: set_code(KC_RCTL, pressed); break;
                 case EK_RGUI: set_code(KC_LGUI, pressed); break;  // Intentionally KC_LGUI here

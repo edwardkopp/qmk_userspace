@@ -26,13 +26,14 @@ enum rainbow_layer_cake {
     _SYMBOL,
     _NAV,
     _RAT,
-    _MOD
+    _LMOD,
+    _RMOD
 };
 
 
 // Custom keys primarily for mods layer
 enum custom_key_codes {
-    EK_CUSTOMS_START = SAFE_RANGE,
+    EK_LSPC = SAFE_RANGE,
 
     // Left mods
     EK_LMOD_START,
@@ -55,4 +56,3 @@ enum custom_key_codes {
 // Keycodes for exploration of the rainbow layer cake
 #define EK_SYM MO(_SYMBOL)
 #define EK_NAV MO(_NAV)
-#define EK_LSPC MO(_MOD)
