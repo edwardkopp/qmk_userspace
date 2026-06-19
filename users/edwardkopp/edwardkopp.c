@@ -36,7 +36,7 @@ static mod_layer_state_t mods_state = LISTEN;
 
 
 // Mods state logic (returns false if continue to process side, returns true if must cancel processing side)
-static bool should_block_mod(mod_layer_state_t side, bool pressed) {
+bool should_block_mod(mod_layer_state_t side, bool pressed) {
     if (!pressed) return false;
     if (mods_state == side) return false;
     if (mods_state == LISTEN) {
@@ -48,7 +48,7 @@ static bool should_block_mod(mod_layer_state_t side, bool pressed) {
 
 
 // Registers or unregisters code according to boolean
-static void set_code(uint16_t mod, bool pressed) {
+void set_code(uint16_t mod, bool pressed) {
     if (pressed) register_code(mod);
     else unregister_code(mod);
 }
@@ -63,7 +63,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             if (pressed) {
                 left_space_time_pressed = timer_read();
                 mods_state = LISTEN;
-            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed < 200) {
+            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed < 200)) {
                 tap_code(KC_SPC);
             }
             return true;
