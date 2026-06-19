@@ -21,7 +21,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 // Tracking of mouse movement for RGB toggling
 #ifdef RGB_MATRIX_ENABLE
-bool mouseActive = false;
+static bool mouse_active = false;
 #endif
 
 
@@ -29,6 +29,16 @@ bool mouseActive = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     bool pressed = record->event.pressed;
+    switch (keycode) {
+        case EK_LSPC:
+            if (pressed) {
+                left_space_time_pressed = timer_read();
+                mods_state = LISTEN;
+            } else if (mods_state == LISTEN && timer_elapsed(left_space_time_pressed < 200)) {
+                tap_code(KC_SPC);
+            }
+            return true;
+    }
     // Nothing beyond this point processes on release
     if (!pressed)
     {
@@ -36,14 +46,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     }
     #ifdef RGB_MATRIX_ENABLE
     // Handle RGB if mouse keys are involved
-    if (IS_MOUSEKEY_MOVE(keycode) && !mouseActive)
-    {
-        mouseActive = true;
+    if (IS_MOUSEKEY_MOVE(keycode) && !mouse_active) {
+        mouse_active = true;
         rgb_matrix_disable_noeeprom();
-    }
-    else if (mouseActive && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV))
-    {
-        mouseActive = false;
+    } else if (mouse_active && IS_LAYER_OFF(_RAT) && IS_LAYER_OFF(_NAV)) {
+        mouse_active = false;
         rgb_matrix_enable_noeeprom();
     }
     #endif
@@ -52,13 +59,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 
 
 // Make _RAT layer accessible
-layer_state_t layer_state_set_user(layer_state_t state)
-{
+layer_state_t layer_state_set_user(layer_state_t state) {
     layer_state_t new_layer_state = update_tri_layer_state(state, _SYMBOL, _NAV, _RAT);
-    if (layer_state_cmp(new_layer_state, _RAT))
-    {
-        register_code(MS_ACL0);
-        unregister_code(MS_ACL0);
+    if (layer_state_cmp(new_layer_state, _RAT)) {
+        tap_code(MS_ACL0);
     }
     return new_layer_state;
 }
