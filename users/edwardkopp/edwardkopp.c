@@ -21,18 +21,18 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 // Tracking of mouse movement for RGB toggling
 #ifdef RGB_MATRIX_ENABLE
-static bool mouse_active = false;
+bool mouse_active = false;
 #endif
 
 
 // Tracking of mod layer stuff
-static uint16_t left_space_time_pressed = 0;
+uint16_t left_space_time_pressed = 0;
 typedef enum {
     LISTEN = 0,
     LEFT,
     RIGHT
 } mod_layer_state_t;
-static mod_layer_state_t mods_state = LISTEN;
+mod_layer_state_t mods_state = LISTEN;
 
 
 // Mods state logic (returns false if continue to process side, returns true if must cancel processing side)
@@ -87,8 +87,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             return false;
     }
     // Nothing beyond this point processes on release
-    if (!pressed)
-    {
+    if (!pressed) {
         return true;
     }
     #ifdef RGB_MATRIX_ENABLE
