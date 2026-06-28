@@ -44,7 +44,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     switch (keycode) {
         case EK_SYM:
         case EK_NAV:
-            // This prevents layer keys
+            // This prevents layer keys from changing RGB lighting state
             return true;
         case EK_MSPC:
             if (pressed) {
