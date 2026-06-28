@@ -53,6 +53,18 @@ enum custom_key_codes {
 };
 
 
-// Keycodes for exploration of the rainbow layer cake
+// Alias keycodes for home row mods
+#define EK_A LGUI_T(KC_A)
+#define EK_S LALT_T(KC_S)
+#define EK_D LCTL_T(KC_D)
+#define EK_F LSFT_T(KC_F)
+// Right side home row mods
+#define EK_J RSFT_T(KC_J)
+#define EK_K RCTL_T(KC_K)
+#define EK_L RALT_T(KC_L)
+#define EK_SCLN LGUI_T(KC_SCLN)
+
+
+// Alias keycodes for exploration of the rainbow layer cake
 #define EK_SYM MO(_SYMBOL)
 #define EK_NAV MO(_NAV)
