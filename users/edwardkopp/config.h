@@ -22,6 +22,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define USB_POLLING_INTERVAL_MS 4
 
 
+// While this is for QMK's Tap-Hold, it's also used for custom keycode logic
+#define TAPPING_TERM 150
+
+
 // Allow mashing
 #define QMK_KEYS_PER_SCAN 12
 #define FORCE_NKRO

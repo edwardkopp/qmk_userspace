@@ -33,7 +33,7 @@ enum rainbow_layer_cake {
 
 // Custom keys primarily for mods layer
 enum custom_key_codes {
-    EK_LSPC = SAFE_RANGE,
+    EK_MSPC = SAFE_RANGE,
 
     // Left mods
     EK_LMOD_START,

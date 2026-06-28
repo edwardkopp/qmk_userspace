@@ -46,7 +46,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         case EK_NAV:
             // This prevents layer keys
             return true;
-        case EK_LSPC:
+        case EK_MSPC:
             if (pressed) {
                 left_space_time_pressed = timer_read();
                 mod_layer_listen_state = true;
@@ -56,7 +56,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             }
             layer_off(_LMOD);
             layer_off(_RMOD);
-            if (mod_layer_listen_state && timer_elapsed(left_space_time_pressed) < 200) {
+            if (mod_layer_listen_state && timer_elapsed(left_space_time_pressed) < TAPPING_TERM) {
                 tap_code(KC_SPC);
             }
             return false;
