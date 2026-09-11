@@ -2,7 +2,7 @@ SRC += edwardkopp.c
 
 LTO_ENABLE = yes
 
-MAGIC_ENABLE = no
+MAGIC_ENABLE = yes
 BOOTMAGIC_ENABLE = no
 
 NKRO_ENABLE = yes
