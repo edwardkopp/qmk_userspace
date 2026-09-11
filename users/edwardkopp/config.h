@@ -28,7 +28,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 // Allow mashing
 #define QMK_KEYS_PER_SCAN 12
-#define NKRO_DEFAULT_ON true
 
 
 // Slower lights

@@ -1,0 +1,7 @@
+{
+    "host": {
+        "default": {
+            "nkro": true
+        }
+    }
+}
