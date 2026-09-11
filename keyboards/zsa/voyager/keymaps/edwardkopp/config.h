@@ -20,4 +20,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 #undef MK_KINETIC_MOUSE_MAXS
-#define MK_KINETIC_MOUSE_MAXS 192
+#define MK_KINETIC_MOUSE_MAXS 240
