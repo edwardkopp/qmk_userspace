@@ -1,7 +1,9 @@
 {
-    "host": {
-        "default": {
-            "nkro": true
+    "config": {
+        "host": {
+            "default": {
+                "nkro": true
+            }
         }
     }
 }
